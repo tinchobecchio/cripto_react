@@ -20,13 +20,16 @@ const Select = styled.select`
     font-size: 1.2rem;
 `
 
+const APIKey = 'c618b9e5c7fcbd1ed8e01fea87cc34423f1e7337fe1be103308e38d75500478d'
+const url = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD`
 
-const useMoneda = (label, stateInicial, opciones) => {
+
+const useCriptomoneda = (label, stateInicial, opciones) => {
     
     // State de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial)
 
-    const Seleccionar = () => (
+    const SelectCripto = () => (
         <>
             <Label>{label}</Label>
             <Select
@@ -34,17 +37,17 @@ const useMoneda = (label, stateInicial, opciones) => {
                 value={state}
             >
                 <option value="">-- Seleccione --</option>
-                {opciones.map(opcion => (
+                {/* {opciones.map(opcion => (
                     <option key={opcion.codigo} value={opcion.codigo}>{opcion.nombre}</option>
-                ))}
+                ))} */}
                 
             </Select>
         </>
     )
     
     // Retornar state, interfaz y funcion que modifica el state
-    return [state, Seleccionar, actualizarState]
+    return [state, SelectCripto, actualizarState]
 
 }
  
-export default useMoneda;
+export default useCriptomoneda;
