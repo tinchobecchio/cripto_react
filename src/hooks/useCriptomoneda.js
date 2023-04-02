@@ -25,7 +25,6 @@ const APIKey = 'c618b9e5c7fcbd1ed8e01fea87cc34423f1e7337fe1be103308e38d75500478d
 
 const useCriptomoneda = (label, stateInicial, opciones) => {
     
-    console.log(opciones);
     // State de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial)
 
