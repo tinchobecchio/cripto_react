@@ -50,6 +50,14 @@ function App() {
   const [ cargando, guardarCargando ] = useState(false)
 
   useEffect( () => {
+
+    // para que scrollee al final
+    const scrollToElement = () => {
+      let elmnt = document.querySelector("#jump");
+      elmnt.scrollIntoView({behavior:'smooth', block:'end'});
+    }
+
+
     const cotizarCriptomoneda = async () => {
       if(moneda === '') return
 
@@ -60,7 +68,7 @@ function App() {
 
       // mostrando el spinner
       guardarCargando(true)
-
+      scrollToElement()
       // ocultar el spinner y mostrar el resultado
       setTimeout(() => {
 
@@ -70,9 +78,7 @@ function App() {
         // guardar cotizacion
         guardarResultado(resultado.data.DISPLAY[criptomoneda][moneda]);
       }, 3000)
-
-
-      
+      setTimeout(() => {scrollToElement()},3100)
     }
     cotizarCriptomoneda()
 
@@ -80,7 +86,6 @@ function App() {
 
   // Mostrar spinner o resultado
   const componente = (cargando) ? <Spinner /> : <Cotizacion resultado={resultado}/>
-
 
   return (
     <Contenedor>
@@ -99,7 +104,7 @@ function App() {
         />
 
         {componente}
-
+      <div id="jump"></div>
       </div>
     </Contenedor>
   );

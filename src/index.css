@@ -27,3 +27,6 @@ body {
 p.precio{
   font-size: 30px!important;
 }
+#jump {
+  height: 1rem;
+}
