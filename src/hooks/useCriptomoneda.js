@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const Label = styled.label`
     font-family: 'Bebas Neue', cursive;
@@ -9,6 +10,8 @@ const Label = styled.label`
     font-size: 2.4rem;
     margin-top: 2rem;
     display: block;
+    text-shadow: 2px 2px 5px black;
+
 `
 const Select = styled.select`
     width: 100%;
@@ -19,9 +22,6 @@ const Select = styled.select`
     border: none;
     font-size: 1.2rem;
 `
-
-const APIKey = 'c618b9e5c7fcbd1ed8e01fea87cc34423f1e7337fe1be103308e38d75500478d'
-
 
 const useCriptomoneda = (label, stateInicial, opciones) => {
     
@@ -49,4 +49,9 @@ const useCriptomoneda = (label, stateInicial, opciones) => {
 
 }
  
+useCriptomoneda.PropTypes = {
+    label: PropTypes.string.isRequired,
+    stateInicial: PropTypes.string.isRequired,
+    opciones: PropTypes.array.isRequired
+}
 export default useCriptomoneda;

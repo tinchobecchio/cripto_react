@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 import useMoneda from "../hooks/useMoneda"
 import useCriptomoneda from "../hooks/useCriptomoneda";
 import axios from "axios";
@@ -16,6 +17,8 @@ const Boton = styled.input`
     border-radius: 10px;
     color: #fff;
     transition: background-color .3s ease;
+    text-shadow: 2px 2px 2px black;
+
 
     &:hover {
         background-color: #326ac0;
@@ -89,4 +92,8 @@ const Formulario = ({guardarMoneda, guardarCriptomoneda}) => {
     );
 }
  
+Formulario.propTypes = {
+    guardarMoneda: PropTypes.func.isRequired,
+    guardarCriptomoneda: PropTypes.func.isRequired
+}
 export default Formulario;

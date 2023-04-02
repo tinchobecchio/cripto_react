@@ -29,6 +29,8 @@ const Heading = styled.h1`
   font-size: 50px;
   margin-bottom: 50px;
   margin-top: 80px;
+  text-shadow: 2px 2px 5px black;
+
 
   &::after {
     content: "";
